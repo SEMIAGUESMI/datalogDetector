@@ -37,10 +37,10 @@ from os.path import abspath, dirname, join
 
 # Prepend .. to $PATH so the project modules can be imported below
 src_path = join(dirname(abspath(__file__)), "..")
-sys.path.insert(0, src_path)
+sys.path.insert(0, src_path) #/home/user/detector/ -- path directory
 
 # Local project imports
-import src.exporter as exporter
+import src.exporter as exporter #/home/user/detector/src
 import src.tac_efg as tac_efg
 import src.settings as settings
 
@@ -132,7 +132,8 @@ logging.basicConfig(format='%(levelname)s: %(message)s', level=log_level)
 
 # Handle --version
 if args.version:
-    sys.exit(1)
+    print(version())
+    sys.exit(0)
 
 # Always show version for log_level >= LOW
 logging.info("\n" + version())
